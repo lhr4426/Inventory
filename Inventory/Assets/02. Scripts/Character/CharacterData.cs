@@ -9,7 +9,7 @@ public class CharacterData
     public int level;
     public long money;
     public int attack;
-    public int defense;
+    public int defence;
     public int hp;
     public int crit;
     public List<Item> items;

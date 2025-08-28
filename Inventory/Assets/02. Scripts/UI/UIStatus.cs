@@ -23,10 +23,10 @@ public class UIStatus : MonoBehaviour
 
     public void RefreshUI()
     {
-        attackValue.text = player.data.attack.ToString();
-        defenceValue.text = player.data.defense.ToString();
-        hpValue.text = player.data.hp.ToString();
-        critValue.text = player.data.crit.ToString();
+        attackValue.text = player.attack.ToString();
+        defenceValue.text = player.defence.ToString();
+        hpValue.text = player.hp.ToString();
+        critValue.text = player.critical.ToString();
     }
     
     private void Start()

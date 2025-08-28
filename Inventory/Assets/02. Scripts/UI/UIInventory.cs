@@ -13,6 +13,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private Button backButton;
 
     private Character player;
+    private Dictionary<Item, UISlot> itemSlots = new();
     
     public void Init(Character player)
     {
@@ -23,7 +24,17 @@ public class UIInventory : MonoBehaviour
         {
             GameObject go = Instantiate(slotPrefab, itemParent);
             go.GetComponent<UISlot>().SetItem(player.data.items[i]);
+            itemSlots.Add(player.data.items[i], go.GetComponent<UISlot>());
         }
+    }
+
+    public void RefreshSlot(Item item)
+    {
+        if (itemSlots.ContainsKey(item))
+        {
+            itemSlots[item].RefreshUI();
+        }
+        else return;
     }
 
     public void AddItem(Item item)

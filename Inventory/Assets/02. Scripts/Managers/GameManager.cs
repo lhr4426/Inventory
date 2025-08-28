@@ -78,7 +78,7 @@ public class GameManager : Singleton<GameManager>
         Player.data.level = 1;
         Player.data.money = 0;
         Player.data.attack = 10;
-        Player.data.defense = 10;
+        Player.data.defence = 10;
         Player.data.hp = 100;
         Player.data.crit = 10;
         Player.data.items.Clear();
@@ -110,7 +110,7 @@ public class GameManager : Singleton<GameManager>
                 equipType = EquipType.Bottom,
                 isEquipped = false,
                 color = new Color(25/255f, 25/255f, 112/255f, 1),
-                statType = StatType.Attack,
+                statType = StatType.Defence,
                 statValue = 5
             });
         Player.data.items.Add(

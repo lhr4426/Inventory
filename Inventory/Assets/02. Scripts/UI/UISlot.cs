@@ -21,6 +21,7 @@ public class UISlot : MonoBehaviour
         RefreshUI();
     }
 
+    // UI 새로고침
     public void RefreshUI()
     {
         switch (item.equipType)
@@ -37,6 +38,8 @@ public class UISlot : MonoBehaviour
         }
 
         icon.color = item.color;
+        
+        outline.enabled = item.isEquipped;
     }
 
     public void ChangeEquip()

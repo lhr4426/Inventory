@@ -24,6 +24,12 @@ public class UIMainMenu : MonoBehaviour
         playerLevel.text = "Lv. " + player.data.level;
         playerMoney.text = player.data.money.ToString();
     }
+
+    public void RefreshUI()
+    {
+        playerLevel.text = "Lv. " + player.data.level;
+        playerMoney.text = player.data.money.ToString();
+    }
     
     public void OpenMainMenu()
     {

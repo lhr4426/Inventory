@@ -13,13 +13,20 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI critValue;
     [SerializeField] private Button backButton;
 
+    private Character player;
     
     public void Init(Character player)
     {
-        attackValue.text = player.baseAttack.ToString();
-        defenceValue.text = player.baseDefense.ToString();
-        hpValue.text = player.baseHp.ToString();
-        critValue.text = player.baseCrit.ToString();
+        this.player = player;
+        RefreshUI();
+    }
+
+    public void RefreshUI()
+    {
+        attackValue.text = player.data.attack.ToString();
+        defenceValue.text = player.data.defense.ToString();
+        hpValue.text = player.data.hp.ToString();
+        critValue.text = player.data.crit.ToString();
     }
     
     private void Start()

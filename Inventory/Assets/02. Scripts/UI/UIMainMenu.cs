@@ -15,12 +15,14 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private Button statusButton;
     [SerializeField] private Button inventoryButton;
 
-
+    private Character player;
+    
     public void Init(Character player)
     {
-        playerName.text = player.name;
-        playerLevel.text = "Lv. " + player.level;
-        playerMoney.text = player.money.ToString();
+        this.player = player;
+        playerName.text = player.data.name;
+        playerLevel.text = "Lv. " + player.data.level;
+        playerMoney.text = player.data.money.ToString();
     }
     
     public void OpenMainMenu()

@@ -8,11 +8,30 @@ using UnityEngine.UI;
 public class UIInventory : MonoBehaviour
 {
     [SerializeField] private Transform itemParent;
+    [SerializeField] private TextMeshProUGUI itemCount;
+    [SerializeField] private GameObject slotPrefab;
     [SerializeField] private Button backButton;
 
+    private Character player;
+    
     public void Init(Character player)
     {
-        // TODO : 나중에 플레이어가 가지고있는 아이템 정보 여기다가 만들어주기
+        this.player = player;
+        itemCount.text = player.data.items.Count.ToString();
+        
+        for (int i = 0; i < player.data.items.Count; i++)
+        {
+            GameObject go = Instantiate(slotPrefab, itemParent);
+            go.GetComponent<UISlot>().SetItem(player.data.items[i]);
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        GameObject go = Instantiate(slotPrefab, itemParent);
+        go.GetComponent<UISlot>().SetItem(item);
+        
+        itemCount.text = (int.Parse(itemCount.text) + 1).ToString();
     }
     
     private void Start()
